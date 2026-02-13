@@ -22,3 +22,7 @@ const orderCardTemplate = document.querySelector(".card");
 /* ora per manipolare un nodo si fa: const node = document.importNode(template.content, true);*/
 
 
+function RenderShell(){
+    const fragment = document.importNode(paginaTemplate.content, true);
+    hookpage.replaceChild(fragment);
+}

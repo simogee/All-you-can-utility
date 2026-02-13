@@ -1,1 +1,4 @@
 node_modules/
+dist/ 
+eslint.config.mjs
+package-lock.json
