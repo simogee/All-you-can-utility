@@ -18,6 +18,9 @@
   },
   "homepage": "https://github.com/simogee/All-you-can-utility#readme",
   "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "eslint": "^10.0.0",
+    "globals": "^17.3.0",
     "html-webpack-plugin": "^5.6.6",
     "mini-css-extract-plugin": "^2.10.0"
   }
