@@ -1,7 +1,7 @@
 
-let orders[];
+let orders=[];
 
-let oldOrders[]; // lista dei vecchi ordini, just in case..
+let oldOrders=[]; // lista dei vecchi ordini, just in case..
 
 export function createOrder(name, number){
     return{
