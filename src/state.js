@@ -3,7 +3,7 @@ let orders[];
 
 let oldOrders[]; // lista dei vecchi ordini, just in case..
 
-function createOrder(name, number){
+export function createOrder(name, number){
     return{
         name: name,
         number: number,
@@ -19,7 +19,7 @@ function sortbyNumber(a,b){ // funzione di sorting.
     return 0;
 }
 
-function AddOrder(name,number){
+export function AddOrder(name,number){
     const newOrder = createOrder(name,number);
     const ord = orders.find( o => o.number === newOrder.number); // trovo l'order relativo
     if(ord == undefined)
@@ -28,7 +28,7 @@ function AddOrder(name,number){
         ord.quantity++; 
 }
 
-function ReduceOrder(number){
+export function ReduceOrder(number){
     const indx = orders.findIndex(o => o.number == number);
     if(orders[indx].quantity <= 0){
         oldOrders.push(orders[index]);
@@ -42,10 +42,14 @@ function ReduceOrder(number){
     }
 }
 
-function getOrders()
+export function getOrders()
 {
     return orders.slice(); // ritorna copia degli ordini
 }
-function getOldOrders(){
+export function getOldOrders(){
     return oldOrders.slice();
+}
+
+export function Sorting(array){
+    array.sort(SortByNumber(f,s));
 }
