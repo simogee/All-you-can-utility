@@ -13,19 +13,19 @@
 
 
 <template id="pag">
-<header> <!--titolo-->
+<header id="hdr"> <!--titolo-->
 <h1>All You Can Util</h1>
-<button>dai clicca qui</button>
+<button id="eheh">dai clicca qui</button>
 </header>
-<aside> <!--opzioni -->
-    <button>Ordini</button>
-    <button>Vecchi ordini</button>
+<aside id="left-part"> <!--opzioni -->
+    <button id="ord-btn">Ordini</button>
+    <button id="old-ord-btn">Vecchi ordini</button>
 </aside>
 <main> <!--ordini-->
-    <section> <!--contenitore ordini-->
+    <section id="orders-container"> <!--contenitore ordini-->
     </section>
-    <button>Add order</button>
-    <button>sort</button> <!--bottone sort-->
+    <button id="add">Add order</button>
+    <button id="sort">sort</button> <!--bottone sort-->
 </main>
 
 </template>
@@ -46,7 +46,10 @@
 
 
 <template class="card">
-    <span id="nome piatto"></span>
-    <span id="numero piatto"></span>
+    <span id="nome-piatto"></span>
+    <span id="numero-piatto"></span>
     <span id="quantità"></span>
+    <button id="add">+</button>
+    <button id="remove">-</button>
+    <button id="del">x</button>
 </template>

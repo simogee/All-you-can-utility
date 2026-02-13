@@ -11,7 +11,7 @@ export function createOrder(name, number){
     }
 
 }
-function sortbyNumber(a,b){ // funzione di sorting.
+function sortByNumber(a,b){ // funzione di sorting.
     if(a.number < b.number)
         return -1;
     if(a.number > b.number)
@@ -51,5 +51,5 @@ export function getOldOrders(){
 }
 
 export function Sorting(array){
-    array.sort(SortByNumber(f,s));
+    array.sort(sortByNumber(f,s));
 }
