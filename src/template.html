@@ -25,7 +25,29 @@
     <section> <!--contenitore ordini-->
     <button>Add order</button>
     </section>
+    <button>Add order</button>
     <button>sort</button> <!--bottone sort-->
 </main>
 
+</template>
+
+
+<template id="dialog-template">
+    <dialog>
+        <form>
+            <label for="nomepiatto">Nome piatto:</label>
+            <input type="text" id="nomepiatto" name="nomepiatto">
+            <label for="numeropiatto">Numero del piatto: </label>
+            <input type="number" id="numeropiatto" name="numeropiatto">
+            <input type="submit" value="submit">
+            <input type="button" value="cancel">
+        </form>
+    </dialog>
+</template>
+
+
+<template id="card">
+    <span id="nome piatto"></span>
+    <span id="numero piatto"></span>
+    <span id="quantità"></span>
 </template>
