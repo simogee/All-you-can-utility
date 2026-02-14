@@ -2,7 +2,7 @@ import "./styles.css";
 
 import {RenderShell,RenderOrders} from "./render.js";
 
-import{createOrder,AddOrder,ReduceOrder,getOrders} from "./state.js"
+import{createOrder,AddOrder,ReduceOrder,getOrders,getOldOrders} from "./state.js"
 
 
 
@@ -22,7 +22,6 @@ function testOrder(n){
 
 
 testOrder(10);
-RenderOrders(getOrders(),parts.ordersContainer);
 
 
 
@@ -31,16 +30,23 @@ parts.ordersContainer.addEventListener("click", (ev) => {
   if (!card) return;
 
   const number = Number(card.querySelector(".numero-piatto").textContent);
-
+  const nome = card.querySelector(".nome-piatto").textContent;
   if (ev.target.closest(".add")) {
-    AddOrder("blah", number);
+    AddOrder(nome, number);
   } else if (ev.target.closest(".remove")) {
     ReduceOrder(number);
   } else if (ev.target.closest(".del")) {
-    // qui chiamerai DeleteOrder(number) se ce l’hai
+    //qui da mettere il delete
   } else {
     return;
   }
 
   RenderOrders(getOrders(), parts.ordersContainer);
 });
+
+parts.ordBtn.addEventListener("click", ()=>{
+    RenderOrders(getOrders(), parts.ordersContainer);
+})
+parts.oldOrdBtn.addEventListener("click", ()=>{
+    RenderOrders(getOldOrders(), parts.ordersContainer);
+})
