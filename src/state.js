@@ -49,7 +49,7 @@ export function getOrders()
     return orders.slice(); // ritorna copia degli ordini
 }
 export function getOldOrders(){
-    
+
     const merge= oldOrders.slice().reduce((acc,curr)=>{
         const found = acc.find(o => o.number === curr.number);
 
@@ -64,6 +64,12 @@ export function getOldOrders(){
     }, []);
     
     return merge;
+
+}
+export function DeleteOrder(num){
+    const indx = orders.findIndex(o => o.number == num);
+    if(indx == -1) return;
+    orders.splice(indx,1);
 
 }
 

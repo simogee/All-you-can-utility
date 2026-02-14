@@ -2,10 +2,19 @@ import "./styles.css";
 
 import {RenderShell,RenderOrders} from "./render.js";
 
-import{createOrder,AddOrder,ReduceOrder,getOrders,getOldOrders} from "./state.js"
+import{createOrder,AddOrder,ReduceOrder,getOrders,getOldOrders,DeleteOrder} from "./state.js"
 
 
-
+/**
+ *  header 
+    specialBtn -> per ottenere ref su bottone "dai clicca qui"
+    aside 
+    ordBtn -> ordini
+    oldOrdBtn -> vecchi ordini
+    ordersContainer -> dove vengono renderizzate le cards
+    addBtn -> aggiunta nuovo ordine -> dialog e salvataggio dati form
+    sortBtn -> mette in ordine di numero gli ordini
+ */
 
 
 const parts = RenderShell();
@@ -36,7 +45,7 @@ parts.ordersContainer.addEventListener("click", (ev) => {
   } else if (ev.target.closest(".remove")) {
     ReduceOrder(number);
   } else if (ev.target.closest(".del")) {
-    //qui da mettere il delete
+    DeleteOrder(number);
   } else {
     return;
   }
@@ -50,3 +59,4 @@ parts.ordBtn.addEventListener("click", ()=>{
 parts.oldOrdBtn.addEventListener("click", ()=>{
     RenderOrders(getOldOrders(), parts.ordersContainer);
 })
+parts.addBtn
