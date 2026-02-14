@@ -49,9 +49,8 @@ export function getOrders()
     return orders.slice(); // ritorna copia degli ordini
 }
 export function getOldOrders(){
-    const toReduce = oldOrders.slice();
-    //ora devo fare il reduce dell'array
-    const merge= toReduce.reduce((acc,curr)=>{
+    
+    const merge= oldOrders.slice().reduce((acc,curr)=>{
         const found = acc.find(o => o.number === curr.number);
 
         if (found) {
