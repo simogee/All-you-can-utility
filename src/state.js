@@ -29,16 +29,18 @@ export function AddOrder(name,number){
 }
 
 export function ReduceOrder(number){
+
     const indx = orders.findIndex(o => o.number == number);
+    if (indx === -1) return;
     if(orders[indx].quantity <= 0){
-        oldOrders.push(orders[index]);
+        oldOrders.push(orders[indx]);
         orders.splice(indx,1);
     }
     else if(orders[indx].quantity>0){
         orders[indx].quantity--;
     }    
     else{
-        return;
+        orders[indx].quantity=0;
     }
 }
 

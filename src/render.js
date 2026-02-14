@@ -17,7 +17,7 @@ const hookpage = document.querySelector("body"); // hook della pagina
 /* seleziono i vari template da manipolare sul file js*/
 const paginaTemplate = document.querySelector("#pag");
 const dialogTemplate = document.querySelector("#dialog-template");
-const orderCardTemplate = document.querySelector(".card");
+const orderCardTemplate = document.querySelector("#order-card");
 
 /*ora per manipolare un nodo si fa: const node = document.importNode(template.content, true);*/
 
@@ -43,19 +43,26 @@ export function RenderShell(){
 
 
 /* prendi ordini da lista passata e crei cards. */
-export function RenderOrders(ords,container){
+export function RenderOrders(ords, container) {
+
+    container.replaceChildren(); // evita duplicati
+
     ords.forEach(element => {
+
         const fragmentCard = orderCardTemplate.content.cloneNode(true);
-        const nomePiatto = fragmentCard.querySelector("#nome-piatto");
-        const numeroPiatto = fragmentCard.querySelector("#numero-piatto");
-        const quantity = fragmentCard.querySelector("#quantità");
-        const addPlate = fragmentCard.querySelector("#add");
-        const delPlate = fragmentCard.querySelector("#del");
-        const remPlate= fragmentCard.querySelector("#remove");
-        
+
+        const nomePiatto = fragmentCard.querySelector(".nome-piatto");
+        const numeroPiatto = fragmentCard.querySelector(".numero-piatto");
+        const quantity = fragmentCard.querySelector(".quantità");
+
+        const addPlate = fragmentCard.querySelector(".add");
+        const delPlate = fragmentCard.querySelector(".del");
+        const remPlate = fragmentCard.querySelector(".remove");
+
         nomePiatto.textContent = element.name;
         numeroPiatto.textContent = element.number;
         quantity.textContent = element.quantity;
+
         container.appendChild(fragmentCard);
     });
 }
