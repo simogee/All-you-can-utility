@@ -81,6 +81,113 @@ main > button:nth-of-type(2) {
   bottom: 1.25rem;
 }
 
+/* Overlay */
+dialog::backdrop {
+  background: rgba(0, 0, 0, 0.4);
+}
+
+/* CENTRATURA + stile */
+dialog {
+  /* centratura robusta */
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  /* il resto come prima */
+  border: none;
+  border-radius: 12px;
+  padding: 2rem;
+  width: 320px;
+  max-width: 90%;
+  background-color: #ffffff;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+/* Form verticale */
+dialog form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* Label */
+dialog label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #2c3e50;
+}
+
+/* Input */
+dialog input[type="text"],
+dialog input[type="number"] {
+  padding: 0.6rem 0.8rem;
+  border: 1px solid #dcdcdc;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  outline: none;
+  transition: border 0.2s ease;
+}
+
+dialog input[type="text"]:focus,
+dialog input[type="number"]:focus {
+  border-color: #3498db;
+}
+
+/* Pulsanti */
+dialog input[type="submit"],
+dialog input[type="button"] {
+  padding: 0.7rem;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+dialog input[type="submit"] {
+  background-color: #3498db;
+  color: white;
+}
+
+dialog input[type="button"] {
+  background-color: #bdc3c7;
+  color: #2c3e50;
+}
+
+dialog input[type="submit"]:hover {
+  opacity: 0.9;
+}
+
+dialog input[type="button"]:hover {
+  opacity: 0.85;
+}
+
+/* --------------------
+   MOBILE
+-------------------- */
+@media (max-width: 480px) {
+  dialog {
+    width: min(92vw, 360px);
+    padding: 1.25rem;
+    border-radius: 10px;
+  }
+
+  dialog label {
+    font-size: 0.85rem;
+  }
+
+  dialog input[type="text"],
+  dialog input[type="number"] {
+    font-size: 1rem; /* migliore su mobile */
+    padding: 0.7rem 0.85rem;
+  }
+
+  dialog input[type="submit"],
+  dialog input[type="button"] {
+    padding: 0.8rem;
+  }
+}
+
 /* --------------------
    MOBILE / TABLET
 -------------------- */
@@ -142,6 +249,117 @@ main > button:nth-of-type(2) {
 
   main > button {
     right: 0.8rem;
+  }
+}
+
+/* cards
+
+/* Contenitore cards */
+#orders-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* Card base */
+.card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.2rem;
+  background-color: #f8f9fa;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  transition: transform 0.1s ease, box-shadow 0.1s ease;
+}
+
+/* Leggero feedback hover */
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+}
+
+/* Parte informativa */
+.card .nome-piatto {
+  font-weight: 600;
+  color: #2c3e50;
+}
+
+.card .numero-piatto,
+.card .quantità {
+  font-size: 0.9rem;
+  color: #555;
+  margin-left: 0.8rem;
+}
+
+/* Se vuoi allineare meglio info */
+.card span {
+  display: inline-block;
+}
+
+/* Area bottoni */
+.card button {
+  min-width: 40px;
+  min-height: 40px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+/* Pulsante + */
+.card .add {
+  background-color: #2ecc71;
+  color: white;
+}
+
+/* Pulsante - */
+.card .remove {
+  background-color: #f39c12;
+  color: white;
+}
+
+/* Pulsante delete */
+.card .del {
+  background-color: #e74c3c;
+  color: white;
+}
+
+/* Spaziatura tra bottoni */
+.card .add,
+.card .remove,
+.card .del {
+  margin-left: 0.5rem;
+}
+
+/* Hover semplice */
+.card button:hover {
+  opacity: 0.9;
+}
+
+/* mobile cards */
+@media (max-width: 600px) {
+  .card {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.8rem;
+  }
+
+  .card span {
+    margin-left: 0;
+  }
+
+  .card button {
+    width: 100%;
+    min-height: 48px;
+    font-size: 1.1rem;
+  }
+
+  .card .add,
+  .card .remove,
+  .card .del {
+    margin-left: 0;
   }
 }
 
