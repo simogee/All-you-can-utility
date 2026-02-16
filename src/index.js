@@ -2,7 +2,7 @@ import "./styles.css";
 
 import {RenderShell,RenderOrders, RenderDialog} from "./render.js";
 
-import{AddOrder,ReduceOrder,getOrders,getOldOrders,DeleteOrder} from "./state.js"
+import{AddOrder,ReduceOrder,getOrders,getOldOrders,DeleteOrder,SortingOrders} from "./state.js"
 
 
 /**
@@ -88,5 +88,7 @@ dialog.form.addEventListener("submit",(ev)=>{ // questa quasi sicuramente è cor
 
 parts.sortBtn.addEventListener("click",(ev)=>{ //sorting button.
 
+  SortingOrders();
+  RenderOrders(getOrders(),parts.ordersContainer);
   
 });

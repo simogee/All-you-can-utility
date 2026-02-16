@@ -11,13 +11,7 @@ function createOrder(name, number){
     }
 
 }
-function sortByNumber(a,b){ // funzione di sorting.
-    if(a.number < b.number)
-        return -1;
-    if(a.number > b.number)
-        return 1;
-    return 0;
-}
+
 
 export function AddOrder(name,number){
     const newOrder = createOrder(name,number);
@@ -88,6 +82,12 @@ export function DeleteOrder(num){
 
 }
 
-export function Sorting(array){
-    array.sort(sortByNumber(f,s));
+export function SortingOrders(){
+    orders.sort(function(o1,o2){
+        if(o1.number < o2.number)
+            return -1;
+        if(o1.number > o2.number)
+            return 1;
+        return 0;
+    });
 }
