@@ -362,3 +362,50 @@ dialog input[type="button"]:hover {
     margin-left: 0;
   }
 }
+
+
+
+/* --------------------
+   MOBILE: bottoni sticky (override)
+-------------------- */
+@media (max-width: 768px) {
+  /* main deve essere lo scroll container */
+  main {
+    overflow: auto;
+    position: relative;     /* ok */
+    padding-bottom: 1rem;   /* non serve più lo spazio per bottoni assoluti */
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* la lista ordini cresce e spinge i bottoni in basso */
+  #orders-container {
+    flex: 1;
+    min-height: 0; /* importante con flex + overflow */
+  }
+
+  /* OVERRIDE: da absolute -> sticky */
+  main > button {
+    position: sticky;
+    right: auto;
+    left: auto;
+    bottom: auto;           /* reset dei bottom precedenti */
+    transform: none;
+    align-self: flex-end;   /* “a destra” */
+    margin-top: 0.75rem;
+    z-index: 5;
+
+    /* touch friendly */
+    min-width: 140px;
+    min-height: 48px;
+  }
+
+  /* ordine sticky: sort attaccato più in basso, add sopra */
+  #sort {
+    bottom: 1rem;
+  }
+
+  #add {
+    bottom: 4.5rem;
+  }
+}
