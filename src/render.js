@@ -44,7 +44,7 @@ export function RenderShell(){
 
 
 /* prendi ordini da lista passata e crei cards. */
-    export function RenderOrders(ords, container,title) { // qui c'è un bug enorme
+    export function RenderOrders(ords, container,title) { 
 
         container.replaceChildren(); // evita duplicati
         if(title){

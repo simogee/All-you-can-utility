@@ -4,6 +4,7 @@ let orders=[];
 let oldOrders=[]; // lista dei vecchi ordini, just in case..
 
 function createOrder(name, number){
+    
     return{
         name: name,
         number: number,
@@ -14,6 +15,9 @@ function createOrder(name, number){
 
 
 export function AddOrder(name,number){
+    if(number < 0) 
+        number = 0;
+
     const newOrder = createOrder(name,number);
     const ord = orders.find( o => o.number === newOrder.number); // trovo l'order relativo
     if(ord === undefined)
