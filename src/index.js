@@ -25,7 +25,7 @@ function testOrder(n){
         AddOrder("prova",123);
         AddOrder("gigi",222);
     }
-        console.log(getOrders());
+        // console.log(getOrders());
 
 }
 
@@ -49,14 +49,17 @@ parts.ordersContainer.addEventListener("click", (ev) => {
     return;
   }
 
-  RenderOrders(getOrders(), parts.ordersContainer);
+  RenderOrders(getOrders(), parts.ordersContainer,"Ordini");
 });
 
 parts.ordBtn.addEventListener("click", ()=>{
-    RenderOrders(getOrders(), parts.ordersContainer);
+    
+    
+    RenderOrders(getOrders(), parts.ordersContainer,"Ordini");
 });
 parts.oldOrdBtn.addEventListener("click", ()=>{
-    RenderOrders(getOldOrders(), parts.ordersContainer);
+   
+    RenderOrders(getOldOrders(), parts.ordersContainer,"Vecchi Ordini");
 });
 parts.addBtn.addEventListener("click",()=>{ // mostra la dialog box
    dialog.dialog.showModal();
@@ -78,7 +81,7 @@ dialog.form.addEventListener("submit",(ev)=>{ // questa quasi sicuramente è cor
     const data = new FormData(dialog.form);
     const nomePiatto = data.get("nomepiatto");
     const numeroPiatto = Number(data.get("numeropiatto"));
-    console.log(numeroPiatto);
+    // console.log(numeroPiatto);
     AddOrder(nomePiatto,numeroPiatto);
     RenderOrders(getOrders(),parts.ordersContainer);
     ev.preventDefault();

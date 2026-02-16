@@ -28,6 +28,7 @@ export function RenderShell(){
     header: fragment.querySelector("#hdr"),
     specialBtn: fragment.querySelector("#eheh"),
     aside: fragment.querySelector("#left-part"),
+    main: fragment.querySelector("main"),
     ordBtn: fragment.querySelector("#ord-btn"),
     oldOrdBtn: fragment.querySelector("#old-ord-btn"),
     ordersContainer: fragment.querySelector("#orders-container"),
@@ -43,29 +44,34 @@ export function RenderShell(){
 
 
 /* prendi ordini da lista passata e crei cards. */
-export function RenderOrders(ords, container) { // qui c'è un bug enorme
+    export function RenderOrders(ords, container,title) { // qui c'è un bug enorme
 
-    container.replaceChildren(); // evita duplicati
+        container.replaceChildren(); // evita duplicati
+        if(title){
+            const titlepg= document.createElement("h2");
+            titlepg.innerText=title;
+            container.appendChild(titlepg);
+        }
+        
+        ords.forEach(element => {
 
-    ords.forEach(element => {
+            const fragmentCard = orderCardTemplate.content.cloneNode(true);
 
-        const fragmentCard = orderCardTemplate.content.cloneNode(true);
+            const nomePiatto = fragmentCard.querySelector(".nome-piatto");
+            const numeroPiatto = fragmentCard.querySelector(".numero-piatto");
+            const quantity = fragmentCard.querySelector(".quantità");
 
-        const nomePiatto = fragmentCard.querySelector(".nome-piatto");
-        const numeroPiatto = fragmentCard.querySelector(".numero-piatto");
-        const quantity = fragmentCard.querySelector(".quantità");
+            const addPlate = fragmentCard.querySelector(".add");
+            const delPlate = fragmentCard.querySelector(".del");
+            const remPlate = fragmentCard.querySelector(".remove");
 
-        const addPlate = fragmentCard.querySelector(".add");
-        const delPlate = fragmentCard.querySelector(".del");
-        const remPlate = fragmentCard.querySelector(".remove");
+            nomePiatto.textContent = element.name;
+            numeroPiatto.textContent = element.number;
+            quantity.textContent = element.quantity;
 
-        nomePiatto.textContent = element.name;
-        numeroPiatto.textContent = element.number;
-        quantity.textContent = element.quantity;
-
-        container.appendChild(fragmentCard);
-    });
-}
+            container.appendChild(fragmentCard);
+        });
+    }
 
 
 export function RenderDialog(container) {
