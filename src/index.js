@@ -96,6 +96,6 @@ parts.sortBtn.addEventListener("click",(ev)=>{ //sorting button.
   
 });
 
-parts.specialBtn.addEventListener("click",()=>{
+parts.header.addEventListener("click",()=>{
   alert("TODO");
 })
