@@ -84,6 +84,7 @@ parts.sortBtn.addEventListener("click",(ev)=>{ //sorting button.
   
 });
 
-parts.header.addEventListener("click",()=>{
-  alert("TODO");
+parts.header.addEventListener("click",(ev)=>{
+  if(ev.target.closest("button"))
+    alert("TODO");
 })
