@@ -252,7 +252,7 @@ dialog input[type="button"]:hover {
   }
 }
 
-/* cards
+/* cards */
 
 /* Contenitore cards */
 #orders-container {
@@ -364,48 +364,37 @@ dialog input[type="button"]:hover {
 }
 
 
-
 /* --------------------
-   MOBILE: bottoni sticky (override)
+   MOBILE: bottoni fissi in basso (viewport) + z-index alto
 -------------------- */
 @media (max-width: 768px) {
-  /* main deve essere lo scroll container */
+  /* evita che il contenuto finisca sotto ai bottoni fissi */
   main {
-    overflow: auto;
-    position: relative;     /* ok */
-    padding-bottom: 1rem;   /* non serve più lo spazio per bottoni assoluti */
-    display: flex;
-    flex-direction: column;
+    padding-bottom: 6.5rem; /* spazio per 2 bottoni */
   }
 
-  /* la lista ordini cresce e spinge i bottoni in basso */
-  #orders-container {
-    flex: 1;
-    min-height: 0; /* importante con flex + overflow */
-  }
-
-  /* OVERRIDE: da absolute -> sticky */
-  main > button {
-    position: sticky;
-    right: auto;
+  /* reset delle regole desktop (absolute in main) */
+  #add, #sort {
+    position: fixed;
     left: auto;
-    bottom: auto;           /* reset dei bottom precedenti */
-    transform: none;
-    align-self: flex-end;   /* “a destra” */
-    margin-top: 0.75rem;
-    z-index: 5;
-
-    /* touch friendly */
-    min-width: 140px;
-    min-height: 48px;
+    right: 1rem;
+    z-index: 9999;          /* piano superiore */
+    min-width: 160px;
+    min-height: 48px;       /* touch-friendly */
+    padding: 0.8rem 1.1rem;
+    border-radius: 10px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.18);
   }
 
-  /* ordine sticky: sort attaccato più in basso, add sopra */
+  /* sort più in basso */
   #sort {
     bottom: 1rem;
   }
 
+  /* add poco sopra */
   #add {
-    bottom: 4.5rem;
+    bottom: 4.6rem;
   }
 }
+
+
