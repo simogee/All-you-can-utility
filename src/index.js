@@ -20,17 +20,17 @@ import{AddOrder,ReduceOrder,getOrders,getOldOrders,DeleteOrder,SortingOrders} fr
 const parts = RenderShell();
 
 
-function testOrder(n){
-    for(let i = 0; i < n; i++){
-        AddOrder("prova",123);
-        AddOrder("gigi",222);
-    }
-        // console.log(getOrders());
+// function testOrder(n){
+//     for(let i = 0; i < n; i++){
+//         AddOrder("prova",123);
+//         AddOrder("gigi",222);
+//     }
+//         console.log(getOrders());
 
-}
+// }
 
 
-testOrder(10);
+// testOrder(10);
 const dialog = RenderDialog(document.querySelector("body"));
 
 
@@ -92,6 +92,10 @@ dialog.form.addEventListener("submit",(ev)=>{ // questa quasi sicuramente è cor
 parts.sortBtn.addEventListener("click",(ev)=>{ //sorting button.
 
   SortingOrders();
-  RenderOrders(getOrders(),parts.ordersContainer);
+  RenderOrders(getOrders(),parts.ordersContainer,"Ordini");
   
 });
+
+parts.specialBtn.addEventListener("click",()=>{
+  alert("TODO");
+})
