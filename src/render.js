@@ -43,7 +43,7 @@ export function RenderShell(){
 
 
 /* prendi ordini da lista passata e crei cards. */
-export function RenderOrders(ords, container) {
+export function RenderOrders(ords, container) { // qui c'è un bug enorme
 
     container.replaceChildren(); // evita duplicati
 
@@ -65,4 +65,28 @@ export function RenderOrders(ords, container) {
 
         container.appendChild(fragmentCard);
     });
+}
+
+
+export function RenderDialog(container) {
+
+    const fragment = dialogTemplate.content.cloneNode(true);
+
+    const dialog = fragment.querySelector("dialog");
+    const form = fragment.querySelector("form");
+    const nomeInput = fragment.querySelector("#nomepiatto");
+    const numeroInput = fragment.querySelector("#numeropiatto");
+    const submitBtn = fragment.querySelector('input[type="submit"]');
+    const cancelBtn = fragment.querySelector('input[type="button"]');
+
+    container.appendChild(fragment);
+
+    return {
+        dialog,
+        form,
+        nomeInput,
+        numeroInput,
+        submitBtn,
+        cancelBtn
+    };
 }

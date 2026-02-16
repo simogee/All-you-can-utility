@@ -22,7 +22,7 @@ function sortByNumber(a,b){ // funzione di sorting.
 export function AddOrder(name,number){
     const newOrder = createOrder(name,number);
     const ord = orders.find( o => o.number === newOrder.number); // trovo l'order relativo
-    if(ord == undefined)
+    if(ord === undefined)
         orders.push(newOrder);
     else
         ord.quantity++; 
@@ -46,7 +46,21 @@ export function ReduceOrder(number){
 
 export function getOrders()
 {
-    return orders.slice(); // ritorna copia degli ordini
+    
+    const merge= orders.slice().reduce((acc,curr)=>{
+        const found = acc.find(o => o.number === curr.number);
+
+        if (found) {
+            found.quantity += curr.quantity;
+        } else {
+            acc.push({ ...curr });
+    }
+
+  return acc;
+
+    }, []);
+    console.log(merge);
+    return merge;
 }
 export function getOldOrders(){
 
