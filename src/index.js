@@ -2,7 +2,7 @@ import "./styles.css";
 
 import {RenderShell,RenderOrders, RenderDialog} from "./render.js";
 
-import{createOrder,AddOrder,ReduceOrder,getOrders,getOldOrders,DeleteOrder} from "./state.js"
+import{AddOrder,ReduceOrder,getOrders,getOldOrders,DeleteOrder} from "./state.js"
 
 
 /**
@@ -34,7 +34,7 @@ testOrder(10);
 const dialog = RenderDialog(document.querySelector("body"));
 
 
-parts.ordersContainer.addEventListener("click", (ev) => { // qui c'è qualche bug con la creazione nuovo ordine e poi aggiunta di un ordine tramite click
+parts.ordersContainer.addEventListener("click", (ev) => { 
   const card = ev.target.closest(".card");
   if (!card) return;
   const number = Number(card.querySelector(".numero-piatto").textContent);
@@ -64,8 +64,11 @@ parts.addBtn.addEventListener("click",()=>{ // mostra la dialog box
 
 //dialog events
 
-dialog.cancelBtn.addEventListener("click", ()=>{
+dialog.cancelBtn.addEventListener("click", (ev)=>{
     //cancella i dati dal form e nasconde
+
+    dialog.form.reset();
+    dialog.dialog.close();
 });
 
 dialog.form.addEventListener("submit",(ev)=>{ // questa quasi sicuramente è corretta
@@ -81,4 +84,9 @@ dialog.form.addEventListener("submit",(ev)=>{ // questa quasi sicuramente è cor
     ev.preventDefault();
     dialog.form.reset();
     dialog.dialog.close();
+});
+
+parts.sortBtn.addEventListener("click",(ev)=>{ //sorting button.
+
+  
 });

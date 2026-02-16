@@ -3,7 +3,7 @@ let orders=[];
 
 let oldOrders=[]; // lista dei vecchi ordini, just in case..
 
-export function createOrder(name, number){
+function createOrder(name, number){
     return{
         name: name,
         number: number,
@@ -32,15 +32,16 @@ export function ReduceOrder(number){
 
     const indx = orders.findIndex(o => o.number == number);
     if (indx === -1) return;
-    if(orders[indx].quantity <= 0){
+    if(orders[indx].quantity <= 1){
+        orders[indx].quantity = 0 ;
         oldOrders.push(orders[indx]);
         orders.splice(indx,1);
     }
-    else if(orders[indx].quantity>0){
+    else if(orders[indx].quantity >1){
         orders[indx].quantity--;
     }    
     else{
-        orders[indx].quantity=0;
+        orders[indx].quantity=1;
     }
 }
 
@@ -59,7 +60,7 @@ export function getOrders()
   return acc;
 
     }, []);
-    console.log(merge);
+    //console.log(merge);
     return merge;
 }
 export function getOldOrders(){
