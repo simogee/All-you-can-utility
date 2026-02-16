@@ -71,7 +71,7 @@ dialog.form.addEventListener("submit",(ev)=>{ // questa quasi sicuramente è cor
     const numeroPiatto = Number(data.get("numeropiatto"));
     // console.log(numeroPiatto);
     AddOrder(nomePiatto,numeroPiatto);
-    RenderOrders(getOrders(),parts.ordersContainer);
+    RenderOrders(getOrders(),parts.ordersContainer,"Ordini");
     ev.preventDefault();
     dialog.form.reset();
     dialog.dialog.close();
